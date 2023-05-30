@@ -29,9 +29,11 @@ let value = false;
 
 function isPrimitive(x) {
     if(typeof x === "object") return false;
+    else if(typeof x === "function") return false;
     else return true;
 }
 log(isPrimitive(value));
+log(isPrimitive(isString(value)));
 
 /*----------------------------*/
 
