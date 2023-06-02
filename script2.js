@@ -8,9 +8,9 @@ let log = console.log; // logging
 // 1
 
 let numbers = [1,2,3,8,4];
-let sum=0;
 
 function sumEvenNumbers(array) {
+    let sum=0;
     for(let i of array){
         if(i%2==0) {
             sum += i;
@@ -29,7 +29,7 @@ let first = prompt("first value: ");
 let second = prompt("second value: ");
 
 function concatValues(a,b) {
-    return String(first).concat(' ',String(second));
+    return String(a).concat(' ',String(b));
 }
 
 log(concatValues(first, second));
@@ -57,11 +57,10 @@ log(numbersType(zero));
 //4
 
 let num = 6;
-let fact = 1;
-let i = 1;
 
 function calcFactorial(x) {
-    
+    let fact = 1;
+    let i = 1;
     while(i <= x) {
         fact *= i;
         i++;
@@ -89,13 +88,16 @@ log(person.greet());
 
 //6
 
-let make = 'Toyota';
-let model = 'Corolla';
-let year = '2019';
 
-let Car = new Object(make,model,year);
-
-Car.getInfo = function(){
-    return `${make} - ${model} - ${year}`;
+function Car(a,b,c){
+    this.make = a;
+    this.model = b;
+    this.year = c;
+    
+    this.getInfo = function(){
+        return `${this.make} - ${this.model} - ${this.year}`;
+    };
 }
-log(Car.getInfo());
+
+let c1 = new Car('Toyota','Corolla','2019');
+log(c1.getInfo());
