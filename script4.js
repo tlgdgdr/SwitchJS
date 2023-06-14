@@ -21,10 +21,11 @@ let log = console.log; //logging
 //     this.year = _year;
 // }
 
-// let hybrid = new Car('Honda','HRV',2019);
-// hybrid.__proto__.charge = function() {
+
+// Car.prototype.charge = function() {
 //     return `${this.make}-${this.model}(${this.year}) is being charged.`
 // }
+// let hybrid = new Car('Honda','HRV',2019);
 
 // log(hybrid.charge());
 
@@ -89,10 +90,11 @@ class Rectangle {
         this.width = width;
         this.height = height;
     }
-    static calculateArea(rectangle) {
-        return this.width * this.height;
+    static calculateArea(r) {
+        return r.width * r.height;
     }
 }
-let rectangle = new Rectangle(3,4);
-log(rectangle);
-log(Rectangle.calculateArea(rectangle)); // I need a help at that spot :()
+let r1 = new Rectangle(3,4);
+let r2 = new Rectangle(4,6);
+log(r1);
+log(Rectangle.calculateArea(r2)); 
