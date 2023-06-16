@@ -61,12 +61,13 @@ let log = console.log;
 //5
 
 // async function print() {
-//     let p = await delay(10000);
-
-//     if(p) {
+    
+//     try {
+//         const p = await delay(1000);
 //         log(p);
-//     }else {
-//         log('No result');
+//     } catch (e) {
+//         log('No result!');
+//         log('promise has failed with an error', e);
 //     }
 // }
 
@@ -74,18 +75,35 @@ let log = console.log;
 //     return new Promise((resolve, reject) => {
 //         //resolve(ms);
 //         //reject(new Error('bad thing happened'));
-//         //setTimeout(resolve,ms,42);
-//         setTimeout(reject, ms, new Error('bad things happened!'));
-//     }).catch(err => log('err', err.message))
+//         setTimeout(resolve,ms,42);
+//         //setTimeout(reject, ms, new Error('bad things happened!'));
+//     })
 // }
 
 // print();
 
 //6
 
-const ValidationError = function(msg) {
-    return Object.create(Error.prototype, {
-        name: {value: 'ValidateError', enumerable: true},
-        message: {value: msg, enumerable: true},
-    });
-}; // not finished :(
+/*
+class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "ValidationError";
+  }
+}
+throw new ValidationError("error message 1");
+throw new ValidationError("another error message");
+*/
+/* With prototypes */
+function ValidationError_V2(message = "") {
+  this.message = message;
+  this.stack = Error().stack;
+}
+ValidationError_V2.prototype = Error.prototype;
+ValidationError_V2.prototype.name = "Very Very Critical Error";
+try {
+  throw new ValidationError_V2("some message here!");
+} catch (e) {
+  console.log(e.name);
+  console.log(e.message);
+}
