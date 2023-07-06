@@ -26,7 +26,7 @@ window.onload = function(){
     });
 
     document.querySelector("#replace").addEventListener('click', (e) =>{
-        document.querySelector('.replace').innerHTML = "THIS IS A NEW PARAGRAPH";
+        document.querySelector('.replace').innerText = "THIS IS A NEW PARAGRAPH";
     });
 }
 
