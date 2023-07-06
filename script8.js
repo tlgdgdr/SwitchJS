@@ -20,8 +20,8 @@ window.onload = function(){
     document.querySelector("#highlight").addEventListener('click', (e) => {
         const paragraphs = document.querySelectorAll('p');
 
-        paragraphs.forEach((paragraphs) => {
-            paragraphs.classList.add('highlight');
+        paragraphs.forEach((p) => {
+            p.classList.add('highlight');
         });
     });
 
