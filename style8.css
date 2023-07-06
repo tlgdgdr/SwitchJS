@@ -1,0 +1,7 @@
+button,p {
+    border: 1px;
+    border-style:solid
+}
+.highlight{
+    background-color:blueviolet;
+}
